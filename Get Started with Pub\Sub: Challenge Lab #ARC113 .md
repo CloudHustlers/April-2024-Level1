@@ -13,6 +13,7 @@ sudo chmod +x run.sh
 ```
 ### If Form Id is `form-2` then run the down command
 ```cmd
+cd ~/ARC113/helloPubSub
 gcloud functions deploy gcf-pubsub \
 --trigger-topic=gcf-topic \
 --runtime=nodejs16 \
