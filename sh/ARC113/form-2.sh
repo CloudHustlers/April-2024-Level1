@@ -30,8 +30,5 @@ gcloud pubsub topics create temp-topic \
 --message-encoding=JSON 
 git clone https://github.com/CodingWithHardik/ARC113.git
 cd ARC113/helloPubSub
-gcloud functions deploy gcf-pubsub \
---trigger-topic=gcf-topic \
---runtime=nodejs16 \
---entry-point=helloPubSub \
---region=$REGION
+sudo chmod +x run.sh
+./run.sh
