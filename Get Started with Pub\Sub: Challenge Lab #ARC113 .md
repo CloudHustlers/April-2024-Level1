@@ -1,6 +1,4 @@
 # ARC113
-## If Form Id is `form-2` go to Cloud Function > Create Function
-## Open cloudshelll
 ## Run in cloudshell
 ```cmd
 export FORM_ID=
