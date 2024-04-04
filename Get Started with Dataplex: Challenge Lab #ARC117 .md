@@ -1,31 +1,35 @@
 # ARC117
-### nEED TO WORK
 ## Run in cloudshell
 ```cmd
-gcloud dataplex lakes create Customer-Engagements \
-    --region=$REGION \
+export REGION=
+```
+```cmd
+gcloud services enable dataplex.googleapis.com
+gcloud services enable datacatalog.googleapis.com
+gcloud dataplex lakes create customer-engagements \
+    --location=$REGION \
     --display-name="Customer Engagements Lake" \
     --description="Lake for storing and analyzing customer engagement data" 
-gcloud dataplex zones create Raw-Event-Data \
-    --region=$REGION \
+gcloud dataplex zones create raw-event-data \
+    --resource-location-type=SINGLE_REGION \
+    --location=$REGION \
     --type=RAW \
-    --lake=Customer-Engagements \
+    --lake=customer-engagements \
     --display-name="Raw Event Data Zone" \
     --description="Zone for unprocessed customer event data"
 gsutil mb -l $REGION gs://$DEVSHELL_PROJECT_ID
-gcloud dataplex assets create Raw-Event-Files \
-    --location=$REGION \ 
-    --lake=Customer-Engagements \
-    --zone=Raw-Event-Data \
-    --type=STORAGE_BUCKET \
-    --storage-bucket=$DEVSHELL_PROJECT_ID
-gcloud dataplex tag-templates create Protected-Raw-Data-Template \
+gcloud dataplex assets create raw-event-files \
     --location=$REGION \
-    --display-name="Protected Raw Data Template" \
-    --field=protected_raw_data_flag,type=ENUM,enum_values=Y,enum_values=N
-gcloud dataplex zones add-iam-policy-binding Raw-Event-Data \
-    --location=$REGION \
-    --lake=Customer-Engagements \
-    --member=user:$USER_EMAIL \
-    --role=roles/dataplex.viewer
+    --lake=customer-engagements \
+    --zone=raw-event-data \
+    --resource-type=STORAGE_BUCKET \
+    --resource-name=projects/$DEVSHELL_PROJECT_ID/buckets/$DEVSHELL_PROJECT_ID
 ```
+### Search `Tag templates dataplex`
+> open `Create tag template` in new tab > name `Protected Raw Data Template` > Location `check in lab`
+>Add Field >Name `Protected Data Flag` > Type `Enumerated` 
+> Value 1 `Y` > ADD VALUE > VALUE 2 `N` > Done > Create
+### From left side click `Search`
+> SEARCH `raw-event-data` > Attach Tags
+> Choose the tag templates `Protected Raw Data Template`
+> In `Protected Data Flag` > Select `Y` > Save
