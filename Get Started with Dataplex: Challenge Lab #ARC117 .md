@@ -26,10 +26,10 @@ gcloud dataplex assets create raw-event-files \
 --resource-name=projects/$DEVSHELL_PROJECT_ID/buckets/$DEVSHELL_PROJECT_ID
 ```
 ### Search `Tag templates dataplex`
-> open `Create tag template` in new tab > name `Protected Raw Data Template` > Location `check in lab`
->Add Field >Name `Protected Data Flag` > Type `Enumerated` 
+> open `Create tag template` in new tab > name `Protected Raw Data Template` > Location `check in lab` <br>
+>Add Field >Name `Protected Data Flag` > Type `Enumerated` <br>
 > Value 1 `Y` > ADD VALUE > VALUE 2 `N` > Done > Create
 ### From left side click `Search`
-> SEARCH `raw-event-data` > Attach Tags
-> Choose the tag templates `Protected Raw Data Template`
+> SEARCH `raw-event-data` > Attach Tags <br>
+> Choose the tag templates `Protected Raw Data Template` <br>
 > In `Protected Data Flag` > Select `Y` > Save
