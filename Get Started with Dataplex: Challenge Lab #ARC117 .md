@@ -30,6 +30,6 @@ gcloud dataplex assets create raw-event-files \
 >Add Field >Name `Protected Data Flag` > Type `Enumerated` <br>
 > Value 1 `Y` > ADD VALUE > VALUE 2 `N` > Done > Create
 ### From left side click `Search`
-> SEARCH `raw-event-data` > Attach Tags <br>
+> SEARCH `Raw Event Data` > Attach Tags <br>
 > Choose the tag templates `Protected Raw Data Template` <br>
 > In `Protected Data Flag` > Select `Y` > Save
