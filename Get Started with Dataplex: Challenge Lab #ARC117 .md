@@ -15,7 +15,7 @@ gcloud dataplex zones create raw-event-data \
 --location=$REGION \
 --type=RAW \
 --lake=customer-engagements \
---display-name="Raw Event Data" \
+--display-name="Raw Event Data Zone" \
 --description="Made By CloudHustlers"
 gsutil mb -l $REGION gs://$DEVSHELL_PROJECT_ID
 gcloud dataplex assets create raw-event-files \
@@ -27,9 +27,9 @@ gcloud dataplex assets create raw-event-files \
 ```
 ### Search `Tag templates dataplex`
 > open `Create tag template` in new tab > name `Protected Raw Data Template` > Location `check in lab` <br>
->Add Field >Name `Protected Data Flag` > Type `Enumerated` <br>
+>Add Field >Name `Protected Raw Data Flag` > Type `Enumerated` <br>
 > Value 1 `Y` > ADD VALUE > VALUE 2 `N` > Done > Create
 ### From left side click `Search`
-> SEARCH `Raw Event Data` > Attach Tags <br>
+> SEARCH `Raw Event Data Zone` > Attach Tags <br>
 > Choose the tag templates `Protected Raw Data Template` <br>
 > In `Protected Data Flag` > Select `Y` > Save
