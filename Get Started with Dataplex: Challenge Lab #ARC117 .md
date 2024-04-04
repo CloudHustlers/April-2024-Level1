@@ -15,7 +15,7 @@ gcloud dataplex zones create raw-event-data \
 --location=$REGION \
 --type=RAW \
 --lake=customer-engagements \
---display-name="Raw Event Data Zone" \
+--display-name="Raw Event Data" \
 --description="Made By CloudHustlers"
 gsutil mb -l $REGION gs://$DEVSHELL_PROJECT_ID
 gcloud dataplex assets create raw-event-files \
